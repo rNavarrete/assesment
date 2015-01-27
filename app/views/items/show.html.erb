@@ -5,6 +5,15 @@
     <%= image_tag(@item.image_url) %>
     <p>
       <%= @item.description %>
+    </br>
+      <p> people also bought </p>
+      <% @item.also_purchased.first(5).each do | item |  %>
+          <ul>
+
+            <li> <%= item  %> </li>
+          </ul>
+      <% end %>
     </p>
+
   </div>
 </div>

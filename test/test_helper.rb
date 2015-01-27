@@ -5,7 +5,7 @@ require 'minitest/pride'
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
-
+  include FactoryGirl::Syntax::Methods
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
