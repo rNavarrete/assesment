@@ -14,7 +14,7 @@ class CustomersAlsoBoughtTest < ActionDispatch::IntegrationTest
 
     visit item_path(item1)
 
-    save_and_open_page
+
 
     assert page.has_content? "Apples"
     assert page.has_content? "Banana"
