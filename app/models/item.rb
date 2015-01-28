@@ -7,7 +7,7 @@ class Item < ActiveRecord::Base
 
 
   def also_purchased
-    items_for_all_orders = Order.includes(:itemscd).map do |order|
+    items_for_all_orders = Order.includes(:items).map do |order|
       order.items.pluck(:name)
     end
 
