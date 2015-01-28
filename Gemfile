@@ -13,6 +13,8 @@ gem 'haml-rails'
 gem 'therubyracer'
 gem 'less-rails-bootstrap'
 gem 'factory_girl_rails'
+gem 'dalli'
+
 
 group :development do
   gem 'spring'

@@ -14,7 +14,8 @@ class SortByNameTest < ActionDispatch::IntegrationTest
     visit items_path
 
     select("alphabetically", :from => 'Filter')
+    click_button("Update")
 
-    assert_equal "Apples", page.find('.name_heading:first-child').text
+    assert_equal "Apples", first('.name_heading').text
   end
 end
