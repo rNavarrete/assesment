@@ -5,8 +5,9 @@ class Item < ActiveRecord::Base
   def all_items
   end
 
+
   def also_purchased
-    items_for_all_orders = Order.all.map do |order|
+    items_for_all_orders = Order.includes(:itemscd).map do |order|
       order.items.pluck(:name)
     end
 
