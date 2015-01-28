@@ -3,22 +3,19 @@ class Item < ActiveRecord::Base
   has_many :orders, through: :order_items
 
   def all_items
-  end 
+  end
 
   def also_purchased
-    all_items = Order.all.map do |order|
-      order.items
+    items_for_all_orders = Order.all.map do |order|
+      order.items.pluck(:name)
     end
 
-    items_with_self = all_items.select do |group|
-      group.include? self
-    end
-
-    results = items_with_self.flatten!
-
-    final = results.uniq - [self]
-
-    final.map { |item|  item.name}
+    items_in_orders_with_self =
+    items_for_all_orders.select do |group|
+      group.include? self.name
+    end.flatten!-[self.name]
 
   end
+
+
 end
